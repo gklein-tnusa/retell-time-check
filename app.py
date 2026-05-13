@@ -15,7 +15,7 @@ BUSINESS_DAYS       = [0, 1, 2, 3, 4]
 
 @app.route("/check-business-hours", methods=["POST"])
 def check_business_hours():
-    data = request.get_json(silent=True)
+    data = request.get_json(force=True, silent=True)
 
     if not data or "datetime_str" not in data:
         return jsonify({
